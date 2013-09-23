@@ -1,6 +1,6 @@
 try
-set expandtab
 set noexpandtab
+set expandtab
 set softtabstop=2
 set tabstop=4
 

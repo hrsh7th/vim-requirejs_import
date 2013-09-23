@@ -31,7 +31,7 @@ function! requirejs_import#append_def(buf, text)
       return substitute(a:buf, requirejs_import#regex([
             \   [':BEFORE_DEF:', '\['],
             \   ['[^[]\+'],
-            \   ['\n'],
+            \   ["\n"],
             \   ['\]', ':OTHER:']
             \ ]), printf('\1\2,\n' . requirejs_import#get_indent() . '%s\n\4', a:text), 'g')
     endif
@@ -63,7 +63,7 @@ function! requirejs_import#append_arg(buf, text)
       return substitute(a:buf, requirejs_import#regex([
             \   [':BEFORE_ARG:', '('],
             \   ['[^(]\+'],
-            \   ['\n'],
+            \   ["\n"],
             \   [')', ':OTHER:']
             \ ]), printf('\1\2,\n' . requirejs_import#get_indent() . '%s\n\4', a:text), 'g')
     endif
