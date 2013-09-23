@@ -1,6 +1,10 @@
 try
+set expandtab
 set noexpandtab
 set softtabstop=2
+set tabstop=4
+
+let s:path = 'path/to/library/Library'
 
 let s:buf_first_define = join([
       \ 'define([], function () {',
@@ -186,7 +190,7 @@ else
 endif
 
 " インデントが取得できる
-set expandtab
+set noexpandtab
 set tabstop=4
 if requirejs_import#get_indent() == "\t"
   echo 'ok'
@@ -194,7 +198,7 @@ else
   throw 'can not get indent1.'
 endif
 
-set noexpandtab
+set expandtab
 set softtabstop=4
 if requirejs_import#get_indent() == "    "
   echo 'ok'
@@ -202,7 +206,7 @@ else
   throw 'can not get indent2.'
 endif
 
-set noexpandtab
+set expandtab
 set softtabstop=2
 if requirejs_import#get_indent() == "  "
   echo 'ok'

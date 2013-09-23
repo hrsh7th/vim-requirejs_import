@@ -6,9 +6,8 @@ let g:requirejs_import#quote = get(g:, 'requirejs_import#quote', "'")
 
 function! requirejs_import#import(buf, path)
   let l:buf = a:buf
-  let l:path = a:path
+  let l:path = requirejs_import#append_quote(requirejs_import#trim_quote(a:path))
   let l:name = requirejs_import#path2name(l:path)
-
   let l:buf = requirejs_import#append_def(l:buf, l:path)
   let l:buf = requirejs_import#append_arg(l:buf, l:name)
   return l:buf
@@ -145,14 +144,21 @@ function! s:regex(words)
 endfunction
 
 function! requirejs_import#path2name(path)
-  let l:path = substitute(a:path, '\/$', '', 'g')
+  let l:path = requirejs_import#trim_quote(a:path)
+  let l:path = substitute(l:path, '\/$', '', 'g')
   return substitute(l:path, '^.*\/\(.*\)$', '\1', 'g')
 endfunction
 
+function! requirejs_import#append_quote(path)
+  return g:requirejs_import#quote . a:path . g:requirejs_import#quote
+endfunction
+
+function! requirejs_import#trim_quote(path)
+  return substitute(substitute(a:path, "'", '', 'g'), '"', '', 'g')
+endfunction
+
 function! requirejs_import#get_indent()
-  if getbufvar('.', '&expandtab')
-    return "\t"
-  else
+  if &expandtab
     if exists('&softtabstop') && !exists('&tabstop')
       return repeat(' ', &softtabstop)
     endif
@@ -165,6 +171,8 @@ function! requirejs_import#get_indent()
     if exists('&softtabstop') && exists('&tabstop')
       return repeat(' ', &softtabstop)
     endif
+  else
+    return "\t"
   endif
 endfunction
 
