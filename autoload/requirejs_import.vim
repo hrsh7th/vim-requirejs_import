@@ -7,10 +7,10 @@ let g:requirejs_import#quote = get(g:, 'requirejs_import#quote', "'")
 function! requirejs_import#import(buf, path)
   let l:buf = a:buf
   let l:path = a:path
-  let l:name = requirejs_import#path2name(s:path)
+  let l:name = requirejs_import#path2name(l:path)
 
-  let l:buf = requirejs_import#append_def(s:buf, s:path)
-  let l:buf = requirejs_import#append_arg(s:buf, s:name)
+  let l:buf = requirejs_import#append_def(l:buf, l:path)
+  let l:buf = requirejs_import#append_arg(l:buf, l:name)
   return l:buf
 endfunction
 
