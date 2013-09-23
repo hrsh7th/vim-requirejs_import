@@ -63,7 +63,7 @@ License : MIT license {{{
 変数					*requirejs_import-variables*
 
 	|g:requirejs_import#quote|
-        パスのクオートに使われる文字列です。
+		パスのクオートに使われる文字列です。
 		デフォルトは ' です。
 
 ------------------------------------------------------------------------------
@@ -71,7 +71,10 @@ License : MIT license {{{
 
 >
 	" requirejs の引数を追加するキーマップです。
-	nnoremap <Leader>! :<C-u>RequireJsImport
+	autocmd! Filetype javascript call g:my_javascript_settings()
+	function! g:my_javascript_settings()
+		nnoremap <buffer><C-k> :<C-u>RequireJsImport<CR>
+	endfunction
 <
 
 
