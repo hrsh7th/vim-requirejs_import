@@ -1,0 +1,94 @@
+*requirejs_import.jax* requirejs を利用した js ファイルで、依存関係にクラスを追加するのに利用します。
+
+Author  : hrsh7th <hrsh7th@gmail.com>
+Updated : 2013-09-24
+Version : 0.0.1
+License : MIT license {{{
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+	"Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to
+	the following conditions:
+	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+目次				*requirejs_import-contents*
+	概要			|requirejs_import-introduction|
+	使い方			|requirejs_import-usage|
+	設定			|requirejs_import-interface|
+	  コマンド		  |requirejs_import-commands|
+	  変数			  |requirejs_import-variables|
+	  設定例		  |requirejs_import-settings-example|
+	TODO			|requirejs_import-todo|
+	更新履歴		|requirejs_import-changelog|
+
+
+==============================================================================
+概要					*requirejs_import-introduction*
+
+	RequireJS を利用している JavaScript ファイルにおいて、
+	引数部分にパスを追加してくれます。
+
+
+==============================================================================
+使い方					*requirejs_import-usage*
+
+>
+	:RequireJsImport app/pager/models/Pager
+<
+
+
+
+==============================================================================
+インターフェース		*requirejs_import-interface*
+
+------------------------------------------------------------------------------
+コマンド				*requirejs_import-commands*
+
+	RequireJsImport {path}
+
+
+------------------------------------------------------------------------------
+変数					*requirejs_import-variables*
+
+	|g:requirejs_import#quote|
+        パスのクオートに使われる文字列です。
+		デフォルトは ' です。
+
+------------------------------------------------------------------------------
+設定例					*requirejs_import-setting-expample*
+
+>
+	" requirejs の引数を追加するキーマップです。
+	nnoremap <Leader>! :<C-u>RequireJsImport
+<
+
+
+==============================================================================
+TODO					*requirejs_import-todo*
+
+	* import の削除
+    * unite source の追加
+    * 引数二つある場合は[ファイルパス・引数名]にできるようにする
+
+
+==============================================================================
+更新履歴				*requirejs_import-changelog*
+
+
+0.0.1	2012-11-04
+	* 最初のバージョン
+
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:fdm=marker:
+
